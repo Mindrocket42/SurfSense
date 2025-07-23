@@ -23,10 +23,23 @@ This guide provides instructions for setting up and running the SurfSense projec
     ```
 
 3.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt 
-    ```
-    *Note: If `requirements.txt` does not exist, you may need to generate it from `pyproject.toml` using a tool like `pip-tools`.*
+
+    This project uses `pyproject.toml` to manage its Python dependencies. To install them, you'll first need to install `pip-tools`, which will allow you to compile a `requirements.txt` file.
+
+    - **Install pip-tools:**
+      ```bash
+      pip install pip-tools
+      ```
+
+    - **Generate `requirements.txt`:**
+      ```bash
+      pip-compile pyproject.toml -o requirements.txt
+      ```
+
+    - **Install the dependencies from the newly created file:**
+      ```bash
+      pip install -r requirements.txt
+      ```
 
 4.  **Set Up the Database:**
     - Start the PostgreSQL service:
