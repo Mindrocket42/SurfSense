@@ -98,4 +98,12 @@ auth_backend = AuthenticationBackend(
 
 fastapi_users = FastAPIUsers[User, uuid.UUID](get_user_manager, [auth_backend])
 
-current_active_user = fastapi_users.current_user(active=True)
+# Completely disable authentication: always return a dummy user
+async def current_active_user(request: Request):
+    return models.UserRead(
+        id=uuid.uuid4(),
+        email="dev@localhost",
+        is_active=True,
+        is_superuser=True,
+        is_verified=True,
+    )

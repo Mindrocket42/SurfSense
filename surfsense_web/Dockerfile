@@ -25,7 +25,7 @@ COPY . .
 # For development, we'll mount the source code as a volume
 # so the build step will be skipped in development mode
 
-EXPOSE 3000
+EXPOSE 3001
 
 # Start Next.js in development mode by default
 # This will be faster for development since we're mounting the code as a volume

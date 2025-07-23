@@ -18,10 +18,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   useEffect(() => {
     // Check if user is authenticated
     const token = localStorage.getItem('surfsense_bearer_token');
-    if (!token) {
-      router.push('/login');
-      return;
-    }
+    // Bypass auth: always allow access to dashboard
+    // if (!token) {
+    //   router.push('/login');
+    //   return;
+    // }
     setIsCheckingAuth(false);
   }, [router]);
 
